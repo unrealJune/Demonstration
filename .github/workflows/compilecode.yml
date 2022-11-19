@@ -1,0 +1,13 @@
+name: compileTests
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  cTest:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile code
+        run: |
+          javac src/*.java
